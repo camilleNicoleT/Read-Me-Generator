@@ -1,15 +1,15 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
-
+const copyFile = require('./utils/generateMarkdown.js');
 
 const questions = () => {
     console.log(`
-    ======================================
-    Let's Create your Professional README!
-    ======================================
+    ============================================================
+    Answer these questions to create your professional README!
+    ============================================================
     `);
-return inquirer.prompt([
+  return inquirer.prompt([
     {
         type: 'input',
         name: 'title',
@@ -21,7 +21,7 @@ return inquirer.prompt([
             console.log('Please enter a title!');
             return false;
           }
-        }
+        },
       },
       {
       type: 'input',
@@ -34,7 +34,7 @@ return inquirer.prompt([
           console.log('Please enter a description for your project!');
           return false;
         }
-      }
+      },
     },
     {
       type: 'input',
@@ -47,7 +47,7 @@ return inquirer.prompt([
           console.log('Please enter your GitHub Username!');
           return false;
         }
-      }
+      },
     },
     {
       type: 'input',
@@ -60,7 +60,7 @@ return inquirer.prompt([
           console.log('Please enter your email!');
           return false;
         }
-      }
+      },
     },
     {
         type: 'checkbox',
@@ -68,13 +68,13 @@ return inquirer.prompt([
         message: 'What would you like in your Table of Contents? Check all that apply (<a> for all, <space> to select, <enter> to submit)',
         choices: [
          ' - [Installation](#installation) ',
-         ' - [Usage](#usage) ',
+         ' - [Contributing](#contributing) ',
+         ' - [Tests](#tests) ',
          ' - [License](#license) ',
-         ' - [Credits](#credits) ',
-         ' - [Tests](#tests) ',]
-      },
-   
-    {
+         ' - [Questions](#Questions) ',         
+        ]
+    },
+      {
         type: 'input',
         name: 'installation',
         message: 'What are the steps required to install your project?',
@@ -85,7 +85,7 @@ return inquirer.prompt([
             console.log('Please enter the installation instructions!');
             return false;
           }
-        }
+        },
       },
       {
         type: 'input',
@@ -94,28 +94,18 @@ return inquirer.prompt([
         validate: contributing => {
             if (contributing) {
               return true;
-            } 
-            }
-          },
+            } else {
+              console.log('Please enter contributing information!');
+              return false;
+        }
+      },
+      },
    {
-    type: 'input',
-    name: 'contributing',
-    message: 'How does someone contribute to your project?',
-    default: true
-    },
-    {
-    type: 'checkbox',
-    name: 'license',
-    message: 'What license did you use for this project? ',
-    choices: ['MIT', 'OpenFaas', 'GPL', 'Apache',],
-    when: ({confirmLicense}) => {
-      if (confirmLicense) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    validate: chosenLicense => {
+     type: 'checkbox',
+     name: 'license',
+     message: 'What license did you use for this project?',
+     choices: ['MIT', 'OpenFaas', 'GPL', 'Apache'],
+       validate: chosenLicense => {
       if (chosenLicense) {
         return true;
       } else {
@@ -124,45 +114,16 @@ return inquirer.prompt([
       }
       }
     },
- {
-  type: 'input',
-  name: 'licenseLink',
-  message: 'Input the link to the license used for this project',
-  when: ({confirmLicense}) => {
-    if (confirmLicense) {
-      return true;
-    } else {
-      return false;
-    }
-  },
-validate: licenseLinkInput => {
-  if (licenseLinkInput) {
-    return true;
-  } else {
-    console.log('Please enter a link of the license!');
-        return false;
-  }
-}
-},
-{
-  type: "input",
-  name: 'tests',
-  message: "How can someone run a test of your project?",
-},
-
+     {
+    type: "input",
+    name: 'tests',
+     message: "How can someone run a test of your project?",
+      },
   ])
   .then(data => {
     return data;
   });
 };
-
-function writeToFile(createdReadMe) {
-  fs.writeFile('./README.md', createdREADME, err => {
-      if (err) throw err;
-  })
- 
-    console.log('README complete! Check out README.md to see the output!');
-  };
 
 
 
@@ -177,10 +138,26 @@ function init() {
   .then (writeToFileResponse => {
     console.log(writeToFileResponse)
   })
+  .then(copyFileResponse => {
+    console.log(copyFileResponse);
+    return copyFile();
+  })
   .catch (err => {
     console.log(err)
   })
-}
+};
+const writeToFile = createdREADME => {
+    return new Promise((resolve, reject) => {
+      fs.writeFile('./README.md', createdREADME, err => {
+        if (err) { reject (err)
+          return;
+        }
+       resolve ({ ok:true,
+      message:'README complete! Check out README.md to see the output!'})
+    })
+    });
+  };
+  
 
 init();
 
