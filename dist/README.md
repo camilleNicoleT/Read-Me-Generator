@@ -1,20 +1,20 @@
-# a   
+# README Generator   
   
   ## License
   This project uses the following License
-  [MIT](https:choosealicense.com/licenses/MIT) 
   ![License](https://img.shields.io/badge/license-MIT-blue.svg)
+  [MIT](https:choosealicense.com/licenses/MIT) 
   
- ## a
+ ## Create a professional README right from your comand line!
  
  ## Table of Contents:
-   - [Installation](#installation) 
+   - [Installation](#installation) , - [Contributing](#contributing) , - [Tests](#tests) , - [License](#license) , - [Questions](#Questions) 
  ## Installation
-  a
+  Open command line, git clone this repository, once downloaded instal inquire, type "node index" into command line and the questions will start
  ## Test
-  a
+  N/A
 ## Contributing
- a
+ N/A
 ## Questions
-a
-a
+camilleNicoleT
+camilleht@gmail.com

@@ -27,7 +27,6 @@ function renderLicenseSection(license) {
   }
   return `
   ## License
-  This project uses the following License
   ${licenseBadge(license)}
   ${licenseLink(license)} 
   `;
