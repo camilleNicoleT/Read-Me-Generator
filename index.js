@@ -67,10 +67,11 @@ const questions = () => {
         name: 'table',
         message: 'What would you like in your Table of Contents? Check all that apply (<a> for all, <space> to select, <enter> to submit)',
         choices: [
-         ' - [Installation](#installation) ',
-         ' - [Contributing](#contributing) ',
-         ' - [Tests](#tests) ',
          ' - [License](#license) ',
+         ' - [Installation](#installation) ',
+         ' - [Usage](#usage) ',
+         ' - [Tests](#tests) ',
+         ' - [Contributing](#contributing) ',
          ' - [Questions](#Questions) ',         
         ]
     },
@@ -89,8 +90,21 @@ const questions = () => {
       },
       {
         type: 'input',
+        name: 'usage',
+        message: 'What would someone use this app for?',
+        validate: usage => {
+          if (usage) {
+            return true;
+          } else {
+            console.log('Please enter usage information!');
+            return false;
+          }
+        },
+      },
+      {
+        type: 'input',
         name: 'contributing',
-        message: 'How does someone contribute to your project?',
+        message: 'List any contributors of your project as well as how someone could contribute to your project.',
         validate: contributing => {
             if (contributing) {
               return true;

@@ -1,20 +1,31 @@
 # README Generator   
-  
+
+
   ## License
-  This project uses the following License
   ![License](https://img.shields.io/badge/license-MIT-blue.svg)
   [MIT](https:choosealicense.com/licenses/MIT) 
   
- ## Create a professional README right from your comand line!
  
- ## Table of Contents:
-   - [Installation](#installation) , - [Contributing](#contributing) , - [Tests](#tests) , - [License](#license) , - [Questions](#Questions) 
- ## Installation
-  Open command line, git clone this repository, once downloaded instal inquire, type "node index" into command line and the questions will start
- ## Test
-  N/A
+## Description
+Create a REAME file via your command line
+
+## Table of Contents:
+   - [License](#license) , - [Installation](#installation) , - [Usage](#usage) , - [Tests](#tests) , - [Contributing](#contributing) , - [Questions](#Questions) 
+
+## Installation 
+  Clone this repo then install inquire
+
+## Usage
+  To create a README using node.js
+
+## Tests
+  NA
+
 ## Contributing
- N/A
+ NO
+
 ## Questions
-camilleNicoleT
-camilleht@gmail.com
+For comments or questions contact me.
+GitHub Username camilleNicoleT
+
+Email: camilleht@gmail.com

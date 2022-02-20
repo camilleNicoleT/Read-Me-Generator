@@ -26,29 +26,40 @@ function renderLicenseSection(license) {
     return '';
   }
   return `
-  ## License
+  ## License 
   ${licenseBadge(license)}
-  ${licenseLink(license)} 
+${licenseLink(license)} 
   `;
 };
 
 
 function generateMarkdown(data) {
   return `# ${data.title}   
-  ${renderLicenseSection(data.license)}
- ## ${data.description}
+${renderLicenseSection(data.license)}
  
- ## Table of Contents:
+## Description
+${data.description}
+
+## Table of Contents:
   ${data.table}
- ## Installation
+
+## Installation 
   ${data.installation}
- ## Test
+
+## Usage
+  ${data.usage}
+
+## Tests
   ${data.tests}
+
 ## Contributing
  ${data.contributing}
+
 ## Questions
-${data.gitHub}
-${data.email}
+For comments or questions contact me.
+GitHub Username: ${data.gitHub}
+
+Email: ${data.email}
 `;
 }
 
