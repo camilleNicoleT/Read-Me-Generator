@@ -148,7 +148,7 @@ function init() {
 };
 const writeToFile = createdREADME => {
     return new Promise((resolve, reject) => {
-      fs.writeFile('./README.md', createdREADME, err => {
+      fs.writeFile('./dist/README.md', createdREADME, err => {
         if (err) { reject (err)
           return;
         }

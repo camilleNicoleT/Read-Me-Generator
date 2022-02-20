@@ -1,60 +1,42 @@
-// // TODO: Create a function that returns a license badge based on which license is passed in
-// // If there is no license, return an empty string
-
 const ListPrompt = require("inquirer/lib/prompts/list");
 
-function licenseBadge(data) {
-   if(chosenLicense === 'MIT') {
-    licenseBadge = `![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)`
-  } else if (chosenLicense === 'OpenFaas') {
-    licenseBadge = `[![OpenFaaS](https://img.shields.io/badge/openfaas-cloud-blue.svg)]`
-  } else if (chosenLicense === 'GPL') {
-    licenseBadge = `![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)`
-  }  else if (chosenLicense === 'GPL') {
-    licenseBadge = `![Apache license](https://www.apache.org/licenses/)`
+//Based off of the license they choose it will call the badge url
+function licenseBadge(license) {
+   if(license) {
+     return `![License](https://img.shields.io/badge/license-${license}-blue.svg)`;
+   
     } 
   else {
       return '';
     }
-    return licenseBadge;
   };
  
 // // If there is no license, return an empty string
-function licenseLink(data) {
- 
-  if(chosenLicense === 'MIT') {
-    licenseLink = `![License: MIT](' https://opensource.org/licenses/MIT'`
-  } else if (chosenLicense === 'OpenFaaS') {
-    licenseLink = `![OpenFaaS license](https://www.openfaas.com)`
-  } else if (chosenLicense === 'GPL') {
-    licenseLink = `![GPL license](https://www.gnu.org/licenses/gpl-3.0.en.html)`
-  }  else if (chosenLicense === 'GPL') {
-    licenseLink = `![Apache license](https://www.apache.org/licenses/)` 
+function licenseLink(license) {
+  if(license){
+  return `[${license}](https:choosealicense.com/licenses/${license})`; 
    } else {
       return '';
     }
-    return licenseLink;
+   
   };
-  
 
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-
-function renderLicenseSection(data) {
+function renderLicenseSection(license) {
   if (!license) {
     return '';
   }
   return `
   ## License
-
-  ${data.license}
-  ${renderLicenseSection(data.licenseBadge, data.licenseLink)}
+  This project uses the following License
+  ${licenseBadge(license)}
+  ${licenseLink(license)} 
   `;
 };
 
 
 function generateMarkdown(data) {
-  return `# ${data.title}    
+  return `# ${data.title}   
+  ${renderLicenseSection(data.license)}
  ## ${data.description}
  
  ## Table of Contents:
