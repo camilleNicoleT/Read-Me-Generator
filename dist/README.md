@@ -1,31 +1,31 @@
 # README Generator   
 
-
-  ## License
-  ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-  [MIT](https:choosealicense.com/licenses/MIT) 
+  ## License 
+  ![License](https://img.shields.io/badge/license-OpenFaas-blue.svg)
+[OpenFaas](https:choosealicense.com/licenses/OpenFaas) 
   
  
 ## Description
-Create a REAME file via your command line
+Through your terminal/comand line create a readme.md file for your github repository 
 
 ## Table of Contents:
    - [License](#license) , - [Installation](#installation) , - [Usage](#usage) , - [Tests](#tests) , - [Contributing](#contributing) , - [Questions](#Questions) 
 
 ## Installation 
-  Clone this repo then install inquire
+  Clone this repo, install inquire
 
 ## Usage
-  To create a README using node.js
+  To quickly create a README.md file for their project
 
 ## Tests
   NA
 
 ## Contributing
- NO
+ NA
 
 ## Questions
 For comments or questions contact me.
-GitHub Username camilleNicoleT
+
+GitHub Username: https://github.com/camilleNicoleT
 
 Email: camilleht@gmail.com

@@ -57,7 +57,8 @@ ${data.description}
 
 ## Questions
 For comments or questions contact me.
-GitHub Username: ${data.gitHub}
+
+GitHub Username: https://github.com/${data.gitHub}
 
 Email: ${data.email}
 `;
